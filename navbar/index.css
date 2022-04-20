@@ -1,0 +1,109 @@
+body {
+    --background-color: #333;
+    --link-width: 80px;
+    --icon-side: 50px;
+    --transition-time: 250ms;
+    --indicator-border-width: 5px;
+    --indicator-offset: calc((var(--link-width) - var(--icon-side) - (2 * var(--indicator-border-width))) / 2);
+    background-color: var(--background-color);
+    color: black;
+    margin: 0;
+    padding: 0;
+
+}
+
+nav {
+    background-color: white;
+    border-radius : .5em;
+    width: max-content;
+    margin: 3em 3em;
+    padding: 0 2rem;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: var(--link-width);
+    height: var(--link-width);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10px);
+    transition: var(--transition-time) ease-in-out;
+    border-radius: 5em;
+    height: var(--icon-side);
+    width: var(--icon-side);
+}
+
+a:not(.active):hover .icon {
+    animation: icon-bounce var(--transition-time);
+}
+
+.active .icon{
+    transform: translateY(-20px);
+}
+
+svg {
+    transition: var(--transition-time) ease-in-out;
+}
+
+.active svg {
+    fill: white;
+}
+
+.link-text {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
+}
+
+.active .link-text{
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+#indicator {
+    position: absolute;
+    opacity: 0;
+    height: var(--icon-side);
+    width: var(--icon-side);
+    border-radius: 5em;
+    background-color: green;
+    border-style: solid;
+    border-width: var(--indicator-border-width);
+    border-color: var(--background-color);
+    transform: 
+        translateX(calc((var(--link-index, 0) * var(--link-width)) + var(--indicator-offset)))
+        translateY(calc(var(--icon-side) / 2 * -1));
+    transition: var(--transition-time) ease-in-out;
+}
+
+@keyframes icon-bounce {
+    /* 25% {
+        transform: translateY(5px);
+    } */
+
+    50% {
+        transform: translateY(5px);
+    }
+
+    /* 75% {
+        transform: translateY(5px);
+    } */
+
+    100% {
+        transform: translateY(10px);
+    }
+}
