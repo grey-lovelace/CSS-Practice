@@ -3,8 +3,8 @@ body {
     --link-width: 80px;
     --icon-side: 50px;
     --transition-time: 250ms;
-    --indicator-border-width: 5px;
-    --indicator-offset: calc((var(--link-width) - var(--icon-side) - (2 * var(--indicator-border-width))) / 2);
+    --spotlight-border-width: 5px;
+    --spotlight-offset: calc((var(--link-width) - var(--icon-side) - (2 * var(--spotlight-border-width))) / 2);
     background-color: var(--background-color);
     color: black;
     margin: 0;
@@ -74,7 +74,7 @@ svg {
     transform: translateY(-10px);
 }
 
-#indicator {
+#spotlight {
     position: absolute;
     opacity: 0;
     height: var(--icon-side);
@@ -82,10 +82,10 @@ svg {
     border-radius: 5em;
     background-color: green;
     border-style: solid;
-    border-width: var(--indicator-border-width);
+    border-width: var(--spotlight-border-width);
     border-color: var(--background-color);
     transform: 
-        translateX(calc((var(--link-index, 0) * var(--link-width)) + var(--indicator-offset)))
+        translateX(calc((var(--link-index, 0) * var(--link-width)) + var(--spotlight-offset)))
         translateY(calc(var(--icon-side) / 2 * -1));
     transition: var(--transition-time) ease-in-out;
 }

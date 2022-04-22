@@ -1,4 +1,4 @@
-const indicator = document.getElementById("indicator");
+const spotlight = document.getElementById("spotlight");
 
 document.addEventListener("click", e => {
     let anchor = e.target;
@@ -12,7 +12,7 @@ document.addEventListener("click", e => {
             linkElement.classList.remove("active")
         })
         anchor.classList.add("active")
-        indicator.style.setProperty("--link-index", linkElements.indexOf(anchor))
-        indicator.style.setProperty("opacity", 1)
+        spotlight.style.setProperty("--link-index", linkElements.indexOf(anchor))
+        spotlight.style.setProperty("opacity", 1)
     }
 });
