@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-content: center;
+    justify-content: start;
+    font-family: 'Space Mono', monospace;
+    --text-length: 0;
+    --typing-speed: 6s;
+    --cursor-flash-speed: .7s
+}
+
+#typing-container {
+    position: relative;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    left: 0%;
+    width: 0%;
+    border-right: 2px solid green;
+    animation: 
+        type var(--typing-speed) steps(var(--text-length)) 1s infinite,
+        border-flash var(--cursor-flash-speed) infinite;
+}
+
+#static-text {
+    padding-right: 1rem
+}
+
+@keyframes type {
+    25%, 50% {
+        width: 100%;
+    }
+
+    75%, 100% {
+        width: 0%;
+    }
+}
+
+@keyframes border-flash {
+    100% {
+        border-right-color: transparent;
+    }
+}
